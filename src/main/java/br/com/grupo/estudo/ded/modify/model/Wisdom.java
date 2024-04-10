@@ -5,24 +5,25 @@ import java.util.Map;
 
 public class Wisdom extends ModifySkill {
 
-    private Map<String, Boolean> skills;
+  private final Map<String, Boolean> skills;
 
-    public Wisdom(int point) {
-        super(point);
-        this.skills = new HashMap<>();
-    }
+  public Wisdom(int point) {
+    super(point);
+    this.skills = new HashMap<>();
+  }
 
-    @Override
-    public void setSkill(String skillName, boolean value) {
-        skills.put(skillName, value);
-    }
+  @Override
+  public void setSkill(String skillName, boolean haveProficiency) {
+    skills.put(skillName, haveProficiency);
+  }
 
-    public int getSkillModifier(String skillName) {
-        Boolean skillValue = skills.get(skillName);
-        if (skillValue != null && skillValue) {
-            return getExpertiseOrResistance(true);
-        } else {
-            return getExpertiseOrResistance(false);
-        }
+  @Override
+  public int getSkillModifier(String skillName, int proficiencyBonus) {
+    Boolean skillValue = skills.get(skillName);
+    if (skillValue != null && skillValue) {
+      return getModify() + proficiencyBonus;
+    } else {
+      return getModify();
     }
+  }
 }
