@@ -34,3 +34,5 @@ target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.l
 target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst
 target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/createdFiles.lst
 target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst
+target/surefire-reports/TEST-br.com.grupo.estudo.ded.modify.ModifySkillTests.xml
+target/surefire-reports/br.com.grupo.estudo.ded.modify.ModifySkillTests.txt
