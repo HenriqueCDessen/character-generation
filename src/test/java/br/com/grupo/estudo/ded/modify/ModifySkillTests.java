@@ -1,5 +1,6 @@
 package br.com.grupo.estudo.ded.modify;
 
+import static br.com.grupo.estudo.ded.modify.utils.SkillsConstants.*;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import br.com.grupo.estudo.ded.BuildCharacter;
@@ -58,20 +59,20 @@ public class ModifySkillTests {
 
     BuildCharacter buildCharacterOne = new BuildCharacter(10, 18, 14, 16, 13, 10, 2);
 
-    buildCharacterOne.setSkill("Arcana");
-    buildCharacterOne.setSkill("Pertidigitation");
+    buildCharacterOne.setSkill(ARCANA);
+    buildCharacterOne.setSkill(PRESTIDIGITATION);
 
     BuildCharacter buildCharacterTwo = new BuildCharacter(10, 18, 14, 16, 13, 10, 3);
 
-    buildCharacterTwo.setSkill("Arcana");
-    buildCharacterTwo.setSkill("Pertidigitation");
+    buildCharacterTwo.setSkill(ARCANA);
+    buildCharacterTwo.setSkill(PRESTIDIGITATION);
 
-    assertEquals(5, buildCharacterOne.getSkill("Arcana"));
-    assertEquals(6, buildCharacterOne.getSkill("Pertidigitation"));
-    assertEquals(0, buildCharacterOne.getSkill("Performance"));
+    assertEquals(5, buildCharacterOne.getSkill(ARCANA));
+    assertEquals(6, buildCharacterOne.getSkill(PRESTIDIGITATION));
+    assertEquals(0, buildCharacterOne.getSkill(PERFORMANCE));
 
-    assertEquals(6, buildCharacterTwo.getSkill("Arcana"));
-    assertEquals(7, buildCharacterTwo.getSkill("Pertidigitation"));
-    assertEquals(0, buildCharacterTwo.getSkill("Performance"));
+    assertEquals(6, buildCharacterTwo.getSkill(ARCANA));
+    assertEquals(7, buildCharacterTwo.getSkill(PRESTIDIGITATION));
+    assertEquals(0, buildCharacterTwo.getSkill(PERFORMANCE));
   }
 }
