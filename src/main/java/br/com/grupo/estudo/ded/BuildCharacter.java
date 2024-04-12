@@ -1,9 +1,10 @@
 package br.com.grupo.estudo.ded;
 
 import br.com.grupo.estudo.ded.modify.model.*;
-
 import java.util.HashMap;
 import java.util.Map;
+
+import static br.com.grupo.estudo.ded.modify.utils.SkillsConstants.*;
 
 public class BuildCharacter {
 
@@ -13,7 +14,7 @@ public class BuildCharacter {
   private final Intelligence intelligence;
   private final Wisdom wisdom;
   private final Charisma charisma;
-  private int proficiencyBonus = 0;
+  private final int proficiencyBonus;
   private Map<String, ModifySkill> skillsMap;
 
   public BuildCharacter(
@@ -38,33 +39,33 @@ public class BuildCharacter {
   private void initializeSkillsMap() {
     skillsMap = new HashMap<>();
 
-    skillsMap.put("strength", strength);
-    skillsMap.put("Athletic", strength);
+    skillsMap.put(STRENGTH, strength);
+    skillsMap.put(ATHLETIC, strength);
 
-    skillsMap.put("dexterity", dexterity);
-    skillsMap.put("Stunt", dexterity);
-    skillsMap.put("Stealth", dexterity);
-    skillsMap.put("Pertidigitation", dexterity);
+    skillsMap.put(DEXTERITY, dexterity);
+    skillsMap.put(STUNT, dexterity);
+    skillsMap.put(STEALTH, dexterity);
+    skillsMap.put(PRESTIDIGITATION, dexterity);
 
-    skillsMap.put("constitution", constitution);
+    skillsMap.put(CONSTITUTION, constitution);
 
-    skillsMap.put("intelligence", intelligence);
-    skillsMap.put("Arcana", intelligence);
-    skillsMap.put("History", intelligence);
-    skillsMap.put("Investigation", intelligence);
-    skillsMap.put("Nature", intelligence);
+    skillsMap.put(INTELLIGENCE, intelligence);
+    skillsMap.put(ARCANA, intelligence);
+    skillsMap.put(HISTORY, intelligence);
+    skillsMap.put(INVESTIGATION, intelligence);
+    skillsMap.put(NATURE, intelligence);
 
-    skillsMap.put("wisdom", wisdom);
-    skillsMap.put("DealingWithAnimals", wisdom);
-    skillsMap.put("Medicine", wisdom);
-    skillsMap.put("Perception", wisdom);
-    skillsMap.put("Survival", wisdom);
+    skillsMap.put(WISDOM, wisdom);
+    skillsMap.put(DEALING_WITH_ANIMALS, wisdom);
+    skillsMap.put(MEDICINE, wisdom);
+    skillsMap.put(PERCEPTION, wisdom);
+    skillsMap.put(SURVIVAL, wisdom);
 
-    skillsMap.put("charisma", charisma);
-    skillsMap.put("Performance", charisma);
-    skillsMap.put("bluff", charisma);
-    skillsMap.put("intimidation", charisma);
-    skillsMap.put("Persuasion", charisma);
+    skillsMap.put(CHARISMA, charisma);
+    skillsMap.put(PERFORMANCE, charisma);
+    skillsMap.put(BLUFF, charisma);
+    skillsMap.put(INTIMIDATION, charisma);
+    skillsMap.put(PERSUASION, charisma);
   }
 
   public void setSkill(String skillName) {

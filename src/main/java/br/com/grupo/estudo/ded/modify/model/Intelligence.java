@@ -22,8 +22,7 @@ public class Intelligence extends ModifySkill {
     Boolean skillValue = skills.get(skillName);
     if (skillValue != null && skillValue) {
       return getModify() + proficiencyBonus;
-    } else {
-      return getModify();
     }
+    return getModify();
   }
 }
