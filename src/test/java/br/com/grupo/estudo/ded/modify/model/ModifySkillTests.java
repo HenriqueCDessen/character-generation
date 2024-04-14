@@ -1,10 +1,8 @@
-package br.com.grupo.estudo.ded.modify;
+package br.com.grupo.estudo.ded.modify.model;
 
-import static br.com.grupo.estudo.ded.modify.utils.SkillsConstants.*;
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
-import br.com.grupo.estudo.ded.BuildCharacter;
-import br.com.grupo.estudo.ded.modify.model.Intelligence;
 import org.junit.jupiter.api.Test;
 
 public class ModifySkillTests {
@@ -55,24 +53,26 @@ public class ModifySkillTests {
   }
 
   @Test
-  public void should_calculete_pericia() {
+  public void should_throw_exception_when_point_more_than_twenty() {
+    IllegalArgumentException exception =
+        assertThrows(
+            IllegalArgumentException.class,
+            () -> {
+              new Intelligence(21);
+            });
 
-    BuildCharacter buildCharacterOne = new BuildCharacter(10, 18, 14, 16, 13, 10, 2);
+    assert (exception.getMessage().contains("O número deve estar no intervalo de 8 a 20."));
+  }
 
-    buildCharacterOne.setSkill(ARCANA);
-    buildCharacterOne.setSkill(PRESTIDIGITATION);
+  @Test
+  public void should_throw_exception_when_point_less_than_eight() {
+    IllegalArgumentException exception =
+        assertThrows(
+            IllegalArgumentException.class,
+            () -> {
+              new Intelligence(7);
+            });
 
-    BuildCharacter buildCharacterTwo = new BuildCharacter(10, 18, 14, 16, 13, 10, 3);
-
-    buildCharacterTwo.setSkill(ARCANA);
-    buildCharacterTwo.setSkill(PRESTIDIGITATION);
-
-    assertEquals(5, buildCharacterOne.getSkill(ARCANA));
-    assertEquals(6, buildCharacterOne.getSkill(PRESTIDIGITATION));
-    assertEquals(0, buildCharacterOne.getSkill(PERFORMANCE));
-
-    assertEquals(6, buildCharacterTwo.getSkill(ARCANA));
-    assertEquals(7, buildCharacterTwo.getSkill(PRESTIDIGITATION));
-    assertEquals(0, buildCharacterTwo.getSkill(PERFORMANCE));
+    assert (exception.getMessage().contains("O número deve estar no intervalo de 8 a 20."));
   }
 }

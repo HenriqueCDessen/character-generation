@@ -1,10 +1,10 @@
 package br.com.grupo.estudo.ded;
 
+import static br.com.grupo.estudo.ded.modify.utils.SkillsConstants.*;
+
 import br.com.grupo.estudo.ded.modify.model.*;
 import java.util.HashMap;
 import java.util.Map;
-
-import static br.com.grupo.estudo.ded.modify.utils.SkillsConstants.*;
 
 public class BuildCharacter {
 
