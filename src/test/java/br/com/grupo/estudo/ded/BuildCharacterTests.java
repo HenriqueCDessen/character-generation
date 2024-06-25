@@ -5,16 +5,19 @@ import static br.com.grupo.estudo.ded.modify.utils.SkillsConstants.PERFORMANCE;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
+import br.com.grupo.estudo.ded.breed.model.BreedStrategy;
+import br.com.grupo.estudo.ded.breed.model.human.Human;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
 public class BuildCharacterTests {
 
   private static BuildCharacter buildCharacter;
+  private static BreedStrategy human = new Human();
 
   @BeforeAll
   public static void setUp() {
-    buildCharacter = new BuildCharacter(18, 18, 14, 10, 10, 10, 1);
+    buildCharacter = new BuildCharacter(18, 18, 14, 10, 10, 10, 1, human);
   }
 
   @Test
@@ -40,12 +43,12 @@ public class BuildCharacterTests {
   @Test
   public void should_create_character_two_characters_with_different_proficiency_bonus() {
 
-    BuildCharacter buildCharacterOne = new BuildCharacter(10, 18, 14, 16, 13, 10, 2);
+    BuildCharacter buildCharacterOne = new BuildCharacter(10, 18, 14, 16, 13, 10, 2, human);
 
     buildCharacterOne.setSkill(ARCANA);
     buildCharacterOne.setSkill(PRESTIDIGITATION);
 
-    BuildCharacter buildCharacterTwo = new BuildCharacter(10, 18, 14, 16, 13, 10, 3);
+    BuildCharacter buildCharacterTwo = new BuildCharacter(10, 18, 14, 16, 13, 10, 3, human);
 
     buildCharacterTwo.setSkill(ARCANA);
     buildCharacterTwo.setSkill(PRESTIDIGITATION);

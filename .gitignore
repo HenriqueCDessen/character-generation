@@ -50,3 +50,5 @@ target/surefire-reports/br.com.grupo.estudo.ded.modify.model.DexterityTests.txt
 target/surefire-reports/br.com.grupo.estudo.ded.modify.model.ConstitutionTests.txt
 target/surefire-reports/br.com.grupo.estudo.ded.modify.model.CharismaTests.txt
 target/surefire-reports/br.com.grupo.estudo.ded.BuildCharacterTests.txt
+*.xml
+*.txt

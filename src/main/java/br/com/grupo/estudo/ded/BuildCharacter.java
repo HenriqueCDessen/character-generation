@@ -2,6 +2,7 @@ package br.com.grupo.estudo.ded;
 
 import static br.com.grupo.estudo.ded.modify.utils.SkillsConstants.*;
 
+import br.com.grupo.estudo.ded.breed.model.BreedStrategy;
 import br.com.grupo.estudo.ded.modify.model.*;
 import java.util.HashMap;
 import java.util.Map;
@@ -24,7 +25,8 @@ public class BuildCharacter {
       int intelligence,
       int wisdom,
       int charisma,
-      int proficiencyBonus) {
+      int proficiencyBonus,
+      BreedStrategy breedStrategy) {
     skillsMap = new HashMap<>();
     this.strength = new Strength(strength);
     this.dexterity = new Dexterity(dexterity);
@@ -34,6 +36,7 @@ public class BuildCharacter {
     this.charisma = new Charisma(charisma);
     this.proficiencyBonus = proficiencyBonus;
     initializeSkillsMap();
+    applyBreedAttributes(breedStrategy);
   }
 
   private void initializeSkillsMap() {
@@ -66,6 +69,35 @@ public class BuildCharacter {
     skillsMap.put(BLUFF, charisma);
     skillsMap.put(INTIMIDATION, charisma);
     skillsMap.put(PERSUASION, charisma);
+  }
+
+  private void applyBreedAttributes(BreedStrategy breedStrategy) {
+    Map<String, String> breedAttributes = breedStrategy.generateBreed();
+
+    for (Map.Entry<String, String> entry : breedAttributes.entrySet()) {
+      switch (entry.getKey()) {
+        case STRENGTH:
+          strength.addPoint(Integer.parseInt(entry.getValue()));
+          break;
+        case DEXTERITY:
+          dexterity.addPoint(Integer.parseInt(entry.getValue()));
+          break;
+        case CONSTITUTION:
+          constitution.addPoint(Integer.parseInt(entry.getValue()));
+          break;
+        case INTELLIGENCE:
+          intelligence.addPoint(Integer.parseInt(entry.getValue()));
+          break;
+        case WISDOM:
+          wisdom.addPoint(Integer.parseInt(entry.getValue()));
+          break;
+        case CHARISMA:
+          charisma.addPoint(Integer.parseInt(entry.getValue()));
+          break;
+        default:
+          throw new IllegalArgumentException("Atributo desconhecido: " + entry.getKey());
+      }
+    }
   }
 
   public void setSkill(String skillName) {

@@ -10,8 +10,8 @@ public abstract class ModifySkill {
   }
 
   public void addPoint(int point) {
-    invalidPoint(point);
-    this.point = point;
+    this.point = point + this.point;
+    invalidPoint(this.point);
   }
 
   public int getModify() {
@@ -21,7 +21,7 @@ public abstract class ModifySkill {
     return Math.max(0, (this.point - 10) / 2);
   }
 
-  private static void invalidPoint(int point) {
+  private void invalidPoint(int point) {
     if (!(point >= 8 && point <= 20)) {
       throw new IllegalArgumentException("O número deve estar no intervalo de 8 a 20.");
     }
